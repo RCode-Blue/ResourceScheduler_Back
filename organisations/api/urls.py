@@ -1,7 +1,34 @@
+from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
+from .views import (
+  organisations_list,
+  organisation_detail,
+  organisations_list_filtered_out
+)
 
-from rest_framework.routers import DefaultRouter
+urlpatterns = [
+  path("org/", organisations_list),
+  path("org/<int:pk>/", organisation_detail),
+  path("org/filtered/", organisations_list_filtered_out)
+]
 
-from organisations.api.views import OrganisationViewSet
+
+urlpatterns = format_suffix_patterns(urlpatterns)
+
+
+
+
+
+
+#region
+# from rest_framework.routers import DefaultRouter
+
+# from organisations.api.views import OrganisationViewSet
+
+# router = DefaultRouter()
+# router.register(r'org', OrganisationViewSet, basename='org')
+# urlpatterns = router.urls
+#endregion
 
 #region
 # from django.urls import path
@@ -22,7 +49,3 @@ from organisations.api.views import OrganisationViewSet
 #   path('org/<pk>/del/', OrganisationDeleteView.as_view())
 # ]
 #endregion
-
-router = DefaultRouter()
-router.register(r'org', OrganisationViewSet, basename='org')
-urlpatterns = router.urls

@@ -1,40 +1,59 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { Collapse } from 'antd';
+
+import * as actions from "../../store/actions";
 
 import Organisations from "../../components/organisations/Organisation";
 import OrgCreateUpdateForm from "../../components/organisations/OrganisationCreateUpdate";
 
 
 class OrganisationList extends React.Component {
-  
-  state = {
-    articles: []
-  }
-
   componentDidMount() {
-    // axios.get("http://127.0.0.1:8000/api/org/")
-    axios.get("/api/org/")
-      .then(res => {
-        this.setState({
-          organisations: res.data
-        });
-        // console.log(res);
-      })
+    this.props.getOrgs();
   }
 
   render() {
+    // console.log(this);
+    const { Panel } = Collapse;
+    
+    if(this.props.orgList === null){
+      return(
+        <div>Loading...</div>
+      )
+    }
+
     return (
       <div>
-        <Organisations data={this.state.organisations}/>
+        <Organisations data={this.props.orgList}/>
         <br />
+
         <h2>Create new organisation</h2>
-        <OrgCreateUpdateForm 
-          requestType="post"
-          organisationID={null}
-          btnText="Create"/>
+        <Collapse>
+          <Panel header="Create">
+            <OrgCreateUpdateForm 
+              requestType="post"
+              organisationID={null}
+              btnText="Create"/>
+          </Panel>
+        </Collapse>
+
       </div>
     );
   }
 }
 
-export default OrganisationList;
+const mapStateToProps = (state) => {
+  return {
+    orgList: state.orgList,
+    userId:  state.userId
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getOrgs: () => dispatch(actions.getOrgs())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OrganisationList);

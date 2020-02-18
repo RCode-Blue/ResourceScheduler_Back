@@ -4,17 +4,19 @@ import { connect } from "react-redux";
 import BaseRouter from "./routes";
 import 'antd/dist/antd.css';
 
-import * as actions from "./store/actions/auth";
+// import * as actions from "./store/actions/authActions";
+import * as actions from "./store/actions/index";
 import CustomLayout from "./containers/Layout";
 
 class App extends Component {
 
   componentDidMount() {
-    console.log(this);
+    // console.log(this);
     this.props.onTryAutoSignup();
   }
 
   render() {
+    // console.log(this);
     return (
       <div>
         <Router>

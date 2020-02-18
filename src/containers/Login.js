@@ -2,7 +2,8 @@ import React from 'react';
 import { Form, Icon, Input, Button, Spin } from 'antd';
 import { connect } from 'react-redux';
 import { NavLink } from "react-router-dom";
-import * as actions from "../store/actions/auth";
+import * as actions from "../store/actions/index";
+// import { getOrgs } from "../store/actions/index";
 
 const FormItem = Form.Item
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
@@ -13,17 +14,27 @@ const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 class NormalLoginForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
+
     this.props.form.validateFields((err, values) => {
       if (!err) {
         // console.log('Received values of form: ', values);
-        this.props.onAuth(values.username, values.password)
+        try {
+          this.props.onAuth(values.username, values.password);
+          // this.props.history.push("/");
+        }
+        catch (error){
+          console.log(error);
+        }
+      }
+      else{
+        console.log("Error");
       }
     });
-    this.props.history.push("/");
+    this.props.history.push("/bookings/");
   }
 
   render() {
-
+    // console.log(this);
     let errorMessage = null;
     if(this.props.error){
       errorMessage = (
@@ -45,10 +56,17 @@ class NormalLoginForm extends React.Component {
         <Form onSubmit={this.handleSubmit} className="login-form">
           <FormItem>
             {getFieldDecorator('username', {
-              rules: [{ required: true, message: 'Please input your username!' }],
+              rules: [{ 
+                required: true, 
+                message: 'Please input your username!' 
+              }],
             })(
               <Input
-                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                prefix={
+                  <Icon type="user" 
+                  style={{ 
+                    color: 'rgba(0,0,0,.25)' }} 
+                  />}
                 placeholder="Username"
               />,
             )}
@@ -70,8 +88,11 @@ class NormalLoginForm extends React.Component {
               Login
             </Button>
             or
-            <NavLink style={{marginRight: "10px"}} to="/signup">
-              &nbsp;&nbsp;Signup
+            <NavLink 
+              style={{marginRight: "10px"}} 
+              to="/signup" 
+              onClick = {() => { this.props.getOrgs() }}>
+                &nbsp;&nbsp;Signup
             </NavLink>
           </FormItem>
         </Form>
@@ -92,7 +113,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (username, password) => dispatch(actions.authLogin(username, password))
+    onAuth: (username, password) => dispatch(actions.authLogin(username, password)),
+    getOrgs: () => dispatch(actions.getOrgs())
   }
 }
 

@@ -32,8 +32,9 @@ dev.js
 # python
 # ------
 venv
-requirements_old.txt
 *.pyc
+
+/migrations
 
 
 .vscode
