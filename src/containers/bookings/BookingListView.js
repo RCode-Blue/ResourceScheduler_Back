@@ -5,7 +5,7 @@ import { Select, Skeleton } from 'antd';
 import * as actions from "../../store/actions"
 
 import Bookings from "../../components/bookings/Booking";
-import BookingCreateUpdateForm from "../../components/bookings/BookingCreateUpdate";
+// import BookingCreateUpdateForm from "../../components/bookings/BookingCreateUpdate";
 
 const { Option } = Select;
 
@@ -32,7 +32,7 @@ class BookingList extends React.Component {
 
   render() {
     console.log(this);
-    if(this.props.resourceList===null){
+    if(this.props.bookingList===null){
       return(
         <Skeleton/>
       )
@@ -40,19 +40,8 @@ class BookingList extends React.Component {
 
     return(
       <div>
-        <Bookings data={this.props.resourceList}/>
-        <br/>
-        <h2>Create new booking</h2>
-        <BookingCreateUpdateForm 
-        requestType="post"
-        resources={this.props.resourceList}
-        btnText="Create"
-        resourceName = {null}
-        titleDefaultValue  = {null}
-        descriptionDefaultValue = {null}
-        startDefaultValue = {null}
-        endDefaultValue = {null}
-        />
+        <Bookings data={this.props.bookingList}/>
+        
       </div>
     )
   }

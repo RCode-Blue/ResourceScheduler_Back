@@ -14,7 +14,7 @@ import ResourceDetail     from "./containers/resources/ResourceDetailView";
 import ProfileDetail      from "./containers/profiles/ProfileDetailView";
 import UserList           from "./containers/users/UserListView";
 import UserDetail         from "./containers/users/UserDetailView";
-import Schedules          from "./containers/schedule/ScheduleView";
+import ScheduleList          from "./containers/schedules/ScheduleListView";
 
 
 import Login from "./containers/Login";
@@ -37,7 +37,7 @@ const BaseRouter = () => (
 
     <Route exact path="/login/"    component={Login} />
     <Route exact path="/signup/"   component={Signup} />
-    <Route exact path="/schedule/" component={Schedules} />
+    <Route exact path="/schedule/" component={ScheduleList} />
   </div>
 );
 

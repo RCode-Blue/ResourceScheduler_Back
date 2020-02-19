@@ -8,13 +8,32 @@ const BookingDetails = (props) => {
 // let start = moment(props.data.booking_start);
 // console.log(moment(props.data.booking_start).format("LLLL"));
 
+
+// const columns = [
+
+// ]
+
   return(
     <div>
       <Card title={props.data.title}>
-        <p>{props.data.description}</p>
-        <p>Resource: {props.data.resource_name}</p>
-        <p>Start: {moment(props.data.booking_start).format("LLLL")}</p>
-        <p>End: {moment(props.data.booking_end).format("LLLL")}</p>
+        <h4>{props.data.description}</h4>
+        <table cellPadding="8">
+          <tbody>
+            <tr>
+              <td>Resource:</td><td>{props.data.resource_name}</td>
+            </tr>
+
+            <tr>
+              <td>Start:</td><td>{moment(props.data.booking_start).format("LLLL")}</td>
+            </tr>
+
+            <tr>
+              <td>End:</td><td>{moment(props.data.booking_end).format("LLLL")}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
       </Card>
     </div>
   )

@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import moment from 'moment';
+// import moment from 'moment';
 
-import { Card, Button } from 'antd';
+import { Collapse, Button } from 'antd';
 import BookingDetails from "../../components/bookings/BookingDetail";
 // import BookingUpdateDeleteForm from "../../components/bookings/BookingUpdateDelete";
 import BookingCreateUpdateForm from "../../components/bookings/BookingCreateUpdate";
@@ -45,29 +45,33 @@ class BookingDetailView extends React.Component {
       <div>
         <BookingDetails data={this.state.booking}/>
         <br/>
-        <Card title="Edit Booking">
-          <BookingCreateUpdateForm
-          requestType="put"
-          bookingID={this.props.match.params.bookingID}
-          booking={this.state.booking}
-          btnText="Update"
+        <h2>Edit Booking</h2>
+        <Collapse>
+          <Collapse.Panel header="Edit">
+            <BookingCreateUpdateForm
+            requestType="put"
+            bookingID={this.props.match.params.bookingID}
+            booking={this.state.booking}
+            btnText="Update"
 
-          resourceName = {this.state.booking.resource_name}
-          titleDefaultValue  = {this.state.booking.title}
-          descriptionDefaultValue = {this.state.booking.description}
-          startDefaultValue = {moment(this.state.booking.booking_start).format("LLLL")}
-          endDefaultValue = {this.state.booking.booking_end}
-          />
-        
-        
-          <form onSubmit={this.handleDelete}>
-            <Button 
-            type="danger" 
-            htmlType="submit">
-              Delete
-            </Button>
-          </form>
-        </Card>
+            resourceName = {this.state.booking.resource_name}
+            titleDefaultValue  = {this.state.booking.title}
+            descriptionDefaultValue = {this.state.booking.description}
+            // startDefaultValue = {moment(this.state.booking.booking_start).format("YYYY-MM-DD")}
+            startDefaultValue = {this.state.booking.booking_start}
+            // endDefaultValue = {moment(this.state.booking.booking_end).format("YYYY-MM-DD")}
+            endDefaultValue = {this.state.booking.booking_end}
+            />
+          
+            <form onSubmit={this.handleDelete}>
+              <Button 
+              type="danger" 
+              htmlType="submit">
+                Delete
+              </Button>
+            </form>
+          </Collapse.Panel>
+        </Collapse>
 
       </div>
     )

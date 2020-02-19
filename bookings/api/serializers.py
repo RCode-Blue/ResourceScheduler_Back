@@ -35,6 +35,7 @@ class BookingSerializer(serializers.ModelSerializer):
       "resource",
       "booking_start",
       "booking_end",
+      "organizer",
 
       "resource_detail",
       "resource_name",

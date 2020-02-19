@@ -130,6 +130,7 @@ class OrgUserCreateUpdateForm extends React.Component {
         if(localOrgUser._userid === val){
           orgUserMatches.push(localOrgUser)
         }
+        return null;
       }
     )
 
@@ -140,6 +141,8 @@ class OrgUserCreateUpdateForm extends React.Component {
         let matchingIndex = tempOrgList.findIndex(
           tempOrg => tempOrg.id === orgUserMatch.orgid);
         orgMatchingIndexes.push(matchingIndex);
+      
+        return null;
       }
     )
 
@@ -149,6 +152,8 @@ class OrgUserCreateUpdateForm extends React.Component {
         // console.log(index-i);
         tempOrgList.splice(index-i, 1)
         i++;
+      
+        return null;
       }
     )
 
@@ -171,6 +176,8 @@ class OrgUserCreateUpdateForm extends React.Component {
         if(localOrgUser.orgid === val){
           orgUserMatches.push(localOrgUser)
         }
+      
+        return null;
       }
     )
     
@@ -181,6 +188,8 @@ class OrgUserCreateUpdateForm extends React.Component {
         let matchingIndex = temp_UserList.findIndex(
           temp_User => temp_User.id === orgUserMatch._userid);
         _userMatchingIndexes.push(matchingIndex);
+      
+        return null;
       }
     )
 
@@ -189,6 +198,8 @@ class OrgUserCreateUpdateForm extends React.Component {
       index => {
         temp_UserList.splice(index-i, 1)
         i++;
+        
+        return null;
       }
     )
 

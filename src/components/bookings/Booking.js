@@ -1,67 +1,69 @@
 import React from 'react';
-import { List, Avatar, Icon } from 'antd';
-import { blue, grey } from '@ant-design/colors';
+import { List, Avatar } from 'antd';
+import { blue } from '@ant-design/colors';
+import moment from 'moment';
 
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
-);
+// const IconText = ({ type, text }) => (
+//   <span>
+//     <Icon type={type} style={{ marginRight: 8 }} />
+//     {text}
+//   </span>
+// );
 
 
 const Bookings = (props) => {
   console.log(props)
   return(
     <List
-      itemLayout="vertical"
-      size="large"
-      pagination={{
-        onChange: page => {
-          console.log(page);
-        },
-        pageSize: 3,
-      }}
-      dataSource={props.data}
-      footer={
-        <div>
-          <b>ant design</b> footer part
-        </div>
-      }
-      renderItem={item => (
-        <List.Item
-          key={item.id}
-          // actions={[
-          //   <IconText type="star-o" text="156" key="list-vertical-star-o" />,
-          //   <IconText type="like-o" text="156" key="list-vertical-like-o" />,
-          //   <IconText type="message" text="2" key="list-vertical-message" />,
-          // ]}
-          // extra={
-          //   <img
-          //     width={272}
-          //     alt="logo"
-          //     src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-          //   />
-          // }
+    itemLayout="vertical"
+    size="large"
+    pagination={{
+      onChange: page => {
+        // console.log(page);
+      },
+      pageSize: 4,
+    }}
+    dataSource={props.data}
+    footer={
+      <div>
+        
+      </div>
+    }
+    renderItem={item => (
+      <List.Item
+        key={item.id}
         >
-          <List.Item.Meta
-            avatar={
-              <Avatar 
-            shape="square" 
-            size="large" 
-            icon="paper-clip" 
-            style={{
-              // color: grey[1],
-              backgroundColor: blue[5]}}
-            />
-            }
-            title={<a href={`/bookings/${item.id}/`}>{item.name}</a>}
-            description={item.description}
+        <List.Item.Meta
+          avatar={
+            <Avatar 
+          shape="square" 
+          size="large" 
+          icon="paper-clip" 
+          style={{
+            // color: grey[1],
+            backgroundColor: blue[5]}}
           />
-          {item.content}
-        </List.Item>
-      )}
-    />
+          }
+          title={<a href={`/bookings/${item.id}/`}>{item.title}</a>}
+          description={item.description}
+        />
+        <i><font size="2">
+        <table cellPadding="5">
+          <tbody>
+            <tr>
+              <td>Start:</td>
+              <td>{moment(item.booking_start).format("ddd DDD MMMM YYYY hh:mm A")}</td>
+            </tr>
+            <tr>
+              <td>End:</td>
+              <td>{moment(item.booking_end).format("ddd DDD MMMM YYYY hh:mm A")}</td>
+            </tr>
+          </tbody>
+        </table>
+        </font></i>
+      </List.Item>
+    )}
+  />
   )
 }
 

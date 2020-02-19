@@ -2,6 +2,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 import { Form, Button, Input, DatePicker, Select } from 'antd';
 import axios from 'axios';
+import moment from 'moment';
 
 const { Option } = Select;
 
@@ -28,39 +29,43 @@ class BookingCreateUpdateForm extends React.Component {
     console.log(e.target.elements);
     // console.log ("Type:        " + type);
     // console.log ("bookingID:   " + bookingID);
-    console.log ("Title:       " + e.target.elements.title.value);
-    console.log ("Description: " + e.target.elements.description.value);
+    // console.log ("Title:       " + e.target.elements.title.value);
+    // console.log ("Description: " + e.target.elements.description.value);
     // console.log ("Resource:    " + this.props.booking.resource.id)
-    console.log ("Start:       " + e.target.elements.startDateTime.value);
-    console.log ("End:         " + e.target.elements.endDateTime.value);
+    // console.log ("Start:       " + e.target.elements.startDateTime.value);
+    // console.log ("End:         " + e.target.elements.endDateTime.value);
 
 // #region
     // switch(this.props.requestType){
-    //   case "post":
-    //     return axios.post("http://127.0.0.1:8000/api/resources/")
-    //     .then(res => {
-    //       this.setState({
-    //         resources: res.data
-    //       });
-    //     });
+    switch(type){
+      case "post":
+        return axios.post("http://127.0.0.1:8000/api/bookings/")
+        .then(res => {
+          this.setState({
+            resources: res.data
+          });
+        });
 
-    //   case "put":
-    //     // edit
-    //     return axios.put(`http://127.0.0.1:8000/api/resources/${bookingID}/`,{
-    //       title:e.target.elements.title.value,
-    //       description:e.target.elements.description.value,
-    //       resource:this.props.booking.resource.id,
-    //       booking_start:e.target.elements.startDateTime.value,
-    //       booking_end:e.target.elements.endDateTime.value
-    //     })
-    //     // console.log("edit");
-    //     // return this.setState({
-    //     //   resourceName:this.props.booking.resource_name
-    //     // })
+      case "put":
+        // edit
+        const request = {
+          "title":e.target.elements.title.value,
+          "description":e.target.elements.description.value,
+          "resource":this.props.booking.resource,
+          "booking_start":e.target.elements.startDateTime.value,
+          "booking_end":e.target.elements.endDateTime.value
+        }
+        console.log(request);
+        console.log(`Booking id: ${bookingID}`);
+        return axios.put(`http://127.0.0.1:8000/api/bookings/${bookingID}/`,request);
+        // console.log("edit");
+        // return this.setState({
+        //   resourceName:this.props.booking.resource_name
+        // })
 
-    //   default:
-    //     return null;
-    // }
+      default:
+        return null;
+    }
 
 // #endregion
 
@@ -105,7 +110,7 @@ class BookingCreateUpdateForm extends React.Component {
   }
 
   render(){
-    // console.log(this);
+    console.log(this);
     const titleDefaultValue=this.props.titleDefaultValue;
 
     return(
@@ -138,6 +143,7 @@ class BookingCreateUpdateForm extends React.Component {
             showTime
             name="startDateTime"
             placeholder="Choose booking start"
+            defaultValue={moment(this.props.startDefaultValue)}
             />
           </Form.Item>
 
@@ -146,6 +152,7 @@ class BookingCreateUpdateForm extends React.Component {
             showTime
             name="endDateTime"
             placeholder="Choose booking end"
+            defaultValue={moment(this.props.endDefaultValue)}
             />
           </Form.Item>
 
