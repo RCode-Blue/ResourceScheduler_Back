@@ -9,6 +9,7 @@ import { List, Avatar } from 'antd';
 // );
 
 const Users = (props) => {
+  console.log(props);
   return(
     <List
     itemLayout="horizontal"
@@ -16,7 +17,7 @@ const Users = (props) => {
       onChange: page => {
         // console.log(page);
       },
-      pageSize: 3,
+      pageSize: 8,
     }}
     dataSource={props.data}
     renderItem={item => (
@@ -25,9 +26,15 @@ const Users = (props) => {
 
       >
         <List.Item.Meta
-          avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+          avatar={
+            <Avatar 
+            shape="round" 
+            size="large" 
+            icon="user" 
+            style={{backgroundColor: '#87d068'}}
+            />}
           title={<a href={`/users/${item.id}/`}>{item.username}</a>}
-          description={`${item.job_title}`}
+          description={`${item.first_name} ${item.last_name}`}
           
         />
         {item.content}

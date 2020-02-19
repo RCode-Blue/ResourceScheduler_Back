@@ -22,8 +22,8 @@ from .serializers import OrgUserSerializer, OrgUserSerializerDetails
 
 @api_view(['GET', 'POST'])
 def orgusers_list(request):
-  print("<<<>>>")
-  print(request.data)
+  # print("<<<>>>")
+  # print(request.data)
 
   if request.method == "GET":
     if(request.data and request.data['userid']):
@@ -33,8 +33,8 @@ def orgusers_list(request):
       serializer = OrgUserSerializerDetails(orgusers, many=True)
       return Response(serializer.data)
       # serializer = OrgUserSerializerDetails(orgusers, many=True)
-    print("xxxxxxxxxxxxx")
-    print(request.data)
+    # print("xxxxxxxxxxxxx")
+    # print(request.data)
     orgusers = OrgUser.objects.all()
     # serializer = OrgUserSerializer(orgusers, many=True)
     serializer = OrgUserSerializerDetails(orgusers, many=True)

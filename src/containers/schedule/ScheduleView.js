@@ -13,6 +13,7 @@ class Schedules extends React.Component {
   }
 
   render() {
+    console.log(this);
     return(
       <div>
         <Calendar onSelect={this.onSelect}/>

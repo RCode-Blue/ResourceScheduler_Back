@@ -1,5 +1,6 @@
 import React from 'react';
 import { List, Avatar, Icon } from 'antd';
+import { blue, grey } from '@ant-design/colors';
 
 const IconText = ({ type, text }) => (
   <span>
@@ -10,6 +11,7 @@ const IconText = ({ type, text }) => (
 
 
 const Bookings = (props) => {
+  console.log(props)
   return(
     <List
       itemLayout="vertical"
@@ -28,23 +30,32 @@ const Bookings = (props) => {
       }
       renderItem={item => (
         <List.Item
-          key={item.title}
-          actions={[
-            <IconText type="star-o" text="156" key="list-vertical-star-o" />,
-            <IconText type="like-o" text="156" key="list-vertical-like-o" />,
-            <IconText type="message" text="2" key="list-vertical-message" />,
-          ]}
-          extra={
-            <img
-              width={272}
-              alt="logo"
-              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            />
-          }
+          key={item.id}
+          // actions={[
+          //   <IconText type="star-o" text="156" key="list-vertical-star-o" />,
+          //   <IconText type="like-o" text="156" key="list-vertical-like-o" />,
+          //   <IconText type="message" text="2" key="list-vertical-message" />,
+          // ]}
+          // extra={
+          //   <img
+          //     width={272}
+          //     alt="logo"
+          //     src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+          //   />
+          // }
         >
           <List.Item.Meta
-            avatar={<Avatar src={item.avatar} />}
-            title={<a href={`/bookings/${item.id}/`}>{item.title}</a>}
+            avatar={
+              <Avatar 
+            shape="square" 
+            size="large" 
+            icon="paper-clip" 
+            style={{
+              // color: grey[1],
+              backgroundColor: blue[5]}}
+            />
+            }
+            title={<a href={`/bookings/${item.id}/`}>{item.name}</a>}
             description={item.description}
           />
           {item.content}

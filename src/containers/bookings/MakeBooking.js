@@ -48,7 +48,8 @@ class MakeBooking extends React.Component {
               <MakeBookingForm 
               resource={resource}
               filteredBookingList={this.props.filteredBookingList}
-              getFilteredBookings={this.props.getFilteredBookings}/>
+              getFilteredBookings={this.props.getFilteredBookings}
+              userId={this.props.userId}/>
             </Panel>
           </Collapse>
         )
@@ -82,7 +83,7 @@ class MakeBooking extends React.Component {
 
 
   render() {
-    // console.log(this);
+    console.log(this);
     // console.log(this.props.userId);
     if(!this.props.userId){
       return(
@@ -96,7 +97,8 @@ class MakeBooking extends React.Component {
       <div>
         <div>
           <this.makeBookingOrgDetails 
-          userId={this.state.userId}
+          // userId={this.state.userId}
+          userId={this.props.match.userId}
           orgUserDetails={this.props.orgUserDetails}/>
         </div>
         <br/>

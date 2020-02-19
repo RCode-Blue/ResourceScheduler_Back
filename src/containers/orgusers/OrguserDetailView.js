@@ -23,7 +23,7 @@ class OrguserDetail extends React.Component {
 
 
     this.props.getOrgUserDetails(orguserIdInt);
-    axios.get(`http://127.0.0.1:8000/api/orgusers/${orguserID}/`)
+    axios.get(`http://127.0.0.1:8000/api/orgusers/${orguserIdInt}/`)
       .then(res => {
         console.log(res);
         this.setState({

@@ -4,6 +4,11 @@ from rest_framework import (
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from rest_framework.parsers import JSONParser
+from rest_framework.decorators import parser_classes
+
+
+
 from organisations.models import Organisation
 from organisations.api.serializers import OrganisationSerializer
 
@@ -47,14 +52,19 @@ def organisation_detail(request, pk):
 
 
 @api_view(["GET"])
+@parser_classes([JSONParser])
 # Given an array of organisation ids, get the orgs that do not match
-def organisations_list_filtered_out(request, **kwargs):
+def organisations_list_filtered_out(request):
   if request.method == "GET":
     print("---------")
     print(request.data)
+    # print(org_ids)
+    # orgs = Organisation.objects.exclude(id__in=request.data(org_ids))
     orgs = Organisation.objects.exclude(id__in=request.data["org_ids"])
     serializer = OrganisationSerializer(orgs, many=True)
     return Response(serializer.data)
+
+
     # organisations = []
     # if(request.data and request.data["org_ids"]):
     #   for org_id in request.data["org_ids"]:
