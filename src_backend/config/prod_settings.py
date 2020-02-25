@@ -6,7 +6,7 @@ ALLOWED_HOSTS = ["https://serene-dusk-06086.herokuapp.com", "0.0.0.0", "localhos
 DEBUG = False
 # CSRF_COOKIE_SECURE = True
 
-DB_URL      = os.environ["DB_URL"]
+DB_URL      = os.environ["DATABASE_URL"]
 DB_PASSWORD = os.environ["DB_PASSWORD"]
 DB_USERNAME = os.environ["DB_USERNAME"]
 DB_NAME     = os.environ["DB_NAME"]
