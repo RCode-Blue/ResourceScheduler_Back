@@ -5,7 +5,7 @@ import moment from 'moment';
 import { Skeleton } from 'antd';
 
 import * as actions from "../../store/actions";
-import Schedules from "../../components/schedules/schedule";
+// import Schedules from "../../components/schedules/schedule";
 import Bookings from "../../components/bookings/Booking";
 
 class ScheduleList extends React.Component {

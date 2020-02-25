@@ -12,7 +12,7 @@ import moment from 'moment';
 
 
 const Bookings = (props) => {
-  console.log(props)
+  // console.log(props)
   return(
     <List
     itemLayout="vertical"
@@ -52,11 +52,11 @@ const Bookings = (props) => {
           <tbody>
             <tr>
               <td>Start:</td>
-              <td>{moment(item.booking_start).format("ddd DDD MMMM YYYY hh:mm A")}</td>
+              <td>{moment(item.booking_start).format("ddd DD MMMM YYYY hh:mm A")}</td>
             </tr>
             <tr>
               <td>End:</td>
-              <td>{moment(item.booking_end).format("ddd DDD MMMM YYYY hh:mm A")}</td>
+              <td>{moment(item.booking_end).format("ddd DD MMMM YYYY hh:mm A")}</td>
             </tr>
           </tbody>
         </table>

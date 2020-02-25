@@ -23,8 +23,8 @@ class OrgDropdown extends Component{
 
 
   renderOrgItem(orgItem){
-    console.log(`ID: ${orgItem.id}`);
-    console.log(`Name: ${orgItem.name}`);
+    // console.log(`ID: ${orgItem.id}`);
+    // console.log(`Name: ${orgItem.name}`);
     return(
       <Select.Option value={orgItem.id}>{orgItem.name}</Select.Option>
     )
@@ -33,7 +33,7 @@ class OrgDropdown extends Component{
 
 
   renderOrgList(orglist){
-    console.log(this);
+    // console.log(this);
     orglist.map((org) => {
       // console.log(org);
       return(
@@ -48,7 +48,7 @@ class OrgDropdown extends Component{
   render(){
     console.log(this)
     if(!this.props.orgList){
-      console.log("null");
+      // console.log("null");
       return(
         <Select placeholder="Select an organisation">
         </Select>

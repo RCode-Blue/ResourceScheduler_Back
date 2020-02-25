@@ -7,17 +7,17 @@ import { Form, Input, Button, Icon, Empty } from 'antd';
 class UserUpdateForm extends React.Component {
   handleFormSubmit = (e, type, userID) => {
     e.preventDefault();
-    console.log(e.target.elements);
+    // console.log(e.target.elements);
   
-    const firstName     = e.target.elements.firstName.value;
-    const middleName    = e.target.elements.middleName.value;
-    const lastName      = e.target.elements.lastName.value;
-    const preferredName = e.target.elements.preferredName.value;
+    // const firstName     = e.target.elements.firstName.value;
+    // const middleName    = e.target.elements.middleName.value;
+    // const lastName      = e.target.elements.lastName.value;
+    // const preferredName = e.target.elements.preferredName.value;
   
-    console.log("First Name:     " + firstName);
-    console.log("Middle Name:    " + middleName);
-    console.log("Last Name:      " + lastName);
-    console.log("Preferred Name: " + preferredName);
+    // console.log("First Name:     " + firstName);
+    // console.log("Middle Name:    " + middleName);
+    // console.log("Last Name:      " + lastName);
+    // console.log("Preferred Name: " + preferredName);
   }
 
 
@@ -184,7 +184,7 @@ class UserUpdateForm extends React.Component {
   }
 
   render(){
-    console.log(this);
+    // console.log(this);
     // const { getFieldDecorator } = this.props.form;
     if(this.props.requestType === "put"){
       return(

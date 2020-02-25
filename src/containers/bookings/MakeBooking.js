@@ -67,14 +67,17 @@ class MakeBooking extends React.Component {
     return(
       this.state.orgUserDetails.map(details => {
         return(
-          <Collapse accordion
-          key={details.organisation.id}>
-            <Panel 
-            header={details.organisation.name} 
+          <div key={details.id}>
+            <Collapse accordion
             key={details.organisation.id}>
-              {this.renderPanels(details.organisation.resources)}
-            </Panel>
-          </Collapse>
+              <Panel 
+              header={details.organisation.name} 
+              key={details.organisation.id}>
+                {this.renderPanels(details.organisation.resources)}
+              </Panel>
+            </Collapse>
+            <br/>
+          </div>
         )
       })
     )
@@ -83,7 +86,7 @@ class MakeBooking extends React.Component {
 
 
   render() {
-    console.log(this);
+    // console.log(this);
     // console.log(this.props.userId);
     if(!this.props.userId){
       return(
@@ -95,10 +98,12 @@ class MakeBooking extends React.Component {
 
     return(
       <div>
+        <h4>Create New Booking</h4>
+        <br/>
         <div>
           <this.makeBookingOrgDetails 
           // userId={this.state.userId}
-          userId={this.props.match.userId}
+          userId={this.props.userId}
           orgUserDetails={this.props.orgUserDetails}/>
         </div>
         <br/>

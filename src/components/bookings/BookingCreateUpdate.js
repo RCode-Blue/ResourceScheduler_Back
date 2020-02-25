@@ -14,7 +14,8 @@ class BookingCreateUpdateForm extends React.Component {
   })
 
   componentDidMount(){
-    axios.get("http://127.0.0.1:8000/api/resources/")
+    // axios.get("http://127.0.0.1:8000/api/resources/")
+    axios.get("/api/resources/")
     .then(res => {
       // console.log(res);
       this.setState({
@@ -26,7 +27,7 @@ class BookingCreateUpdateForm extends React.Component {
 
   handleFormSubmit = (e, type, bookingID) => {
     e.preventDefault();
-    console.log(e.target.elements);
+    // console.log(e.target.elements);
     // console.log ("Type:        " + type);
     // console.log ("bookingID:   " + bookingID);
     // console.log ("Title:       " + e.target.elements.title.value);
@@ -39,7 +40,8 @@ class BookingCreateUpdateForm extends React.Component {
     // switch(this.props.requestType){
     switch(type){
       case "post":
-        return axios.post("http://127.0.0.1:8000/api/bookings/")
+        // return axios.post("http://127.0.0.1:8000/api/bookings/")
+        return axios.post("/api/bookings/")
         .then(res => {
           this.setState({
             resources: res.data
@@ -55,9 +57,10 @@ class BookingCreateUpdateForm extends React.Component {
           "booking_start":e.target.elements.startDateTime.value,
           "booking_end":e.target.elements.endDateTime.value
         }
-        console.log(request);
-        console.log(`Booking id: ${bookingID}`);
-        return axios.put(`http://127.0.0.1:8000/api/bookings/${bookingID}/`,request);
+        // console.log(request);
+        // console.log(`Booking id: ${bookingID}`);
+        // return axios.put(`http://127.0.0.1:8000/api/bookings/${bookingID}/`,request);
+        return axios.put(`/api/bookings/${bookingID}/`,request);
         // console.log("edit");
         // return this.setState({
         //   resourceName:this.props.booking.resource_name
@@ -110,7 +113,7 @@ class BookingCreateUpdateForm extends React.Component {
   }
 
   render(){
-    console.log(this);
+    // console.log(this);
     const titleDefaultValue=this.props.titleDefaultValue;
 
     return(

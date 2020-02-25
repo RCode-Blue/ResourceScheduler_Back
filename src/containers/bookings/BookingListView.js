@@ -31,7 +31,7 @@ class BookingList extends React.Component {
 
 
   render() {
-    console.log(this);
+    // console.log(this);
     if(this.props.bookingList===null){
       return(
         <Skeleton/>

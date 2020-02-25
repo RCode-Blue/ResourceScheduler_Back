@@ -9,7 +9,7 @@ import { List, Avatar } from 'antd';
 // );
 
 const Users = (props) => {
-  console.log(props);
+  // console.log(props);
   return(
     <List
     itemLayout="horizontal"

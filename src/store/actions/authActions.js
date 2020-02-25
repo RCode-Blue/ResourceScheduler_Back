@@ -50,7 +50,8 @@ export const authLogin = (username, password) => {
             "password":password
         }
         dispatch(authStart()); // Announce start of authentication process
-        axios.post('http://127.0.0.1:8000/rest-auth/login/', user)  // do a POST
+        // axios.post('http://127.0.0.1:8000/rest-auth/login/', user)  // do a POST
+        axios.post('/rest-auth/login/', user)  // do a POST
         .then(res => {                                              // get response & do something with it
             // console.log(res);
             const user = {
@@ -94,8 +95,9 @@ export const authSignup = (
             "last_name":last_name,
             "preferred_name":preferred_name
         }
-        console.log(user);
-        axios.post('http://127.0.0.1:8000/rest-auth/registration/', user)
+        // console.log(user);
+        // axios.post('http://127.0.0.1:8000/rest-auth/registration/', user)
+        axios.post('/rest-auth/registration/', user)
         .then(res => {
             // console.log(res);
             const user = {

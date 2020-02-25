@@ -16,7 +16,8 @@ class ResourceList extends React.Component {
   componentDidMount() {
     this.props.getOrgs();
 
-    axios.get("http://127.0.0.1:8000/api/resources/")
+    // axios.get("http://127.0.0.1:8000/api/resources/")
+    axios.get("/api/resources/")
       .then(res => {
         this.setState({
           resources: res.data
@@ -26,7 +27,7 @@ class ResourceList extends React.Component {
   }
 
   render() {
-    console.log(this);
+    // console.log(this);
     const { Panel } = Collapse;
     return(
       <div>

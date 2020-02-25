@@ -1,7 +1,18 @@
+
+# IDE:
+# ---
+.vscode
+
+
 # node:
 # ----
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# project
+# -------
+/local_resources
+# db.sqlite3
 
 # dependencies
 /node_modules
@@ -36,5 +47,8 @@ venv
 
 /migrations
 
+dev_settings.py
+test_settings.py
+prod_settings.py
 
-.vscode
+

@@ -7,15 +7,15 @@ import { Form, Input, Button } from 'antd';
 class UserCreateUpdateForm extends React.Component {
   handleFormSubmit = (e, type, userID) => {
     e.preventDefault();
-    console.log(e.target.elements);
+    // console.log(e.target.elements);
   
     const email = e.target.elements.email.value;
     const job_title = e.target.elements.jobtitle.value;
     const department = e.target.elements.department.value;
   
-    console.log("email:      " + email);
-    console.log("job_title:  " + job_title);
-    console.log("department: " + department);
+    // console.log("email:      " + email);
+    // console.log("job_title:  " + job_title);
+    // console.log("department: " + department);
   }
 
 

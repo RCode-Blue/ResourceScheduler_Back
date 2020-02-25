@@ -17,7 +17,8 @@ class BookingCreateUpdateForm extends React.Component {
   })
 
   componentDidMount(){
-    axios.get("http://127.0.0.1:8000/api/resources/")
+    // axios.get("http://127.0.0.1:8000/api/resources/")
+    axios.get("/api/resources/")
     .then(res => {
       // console.log(res);
       this.setState({
@@ -29,14 +30,14 @@ class BookingCreateUpdateForm extends React.Component {
 
   handleFormSubmit = (e, type, bookingID) => {
     e.preventDefault();
-    console.log(e.target.elements);
+    // console.log(e.target.elements);
     // console.log ("Type:        " + type);
     // console.log ("bookingID:   " + bookingID);
-    console.log ("Title:       " + e.target.elements.title.value);
-    console.log ("Description: " + e.target.elements.description.value);
+    // console.log ("Title:       " + e.target.elements.title.value);
+    // console.log ("Description: " + e.target.elements.description.value);
     // console.log ("Resource:    " + this.props.booking.resource.id)
-    console.log ("Start:       " + e.target.elements.startDateTime.value);
-    console.log ("End:         " + e.target.elements.endDateTime.value);
+    // console.log ("Start:       " + e.target.elements.startDateTime.value);
+    // console.log ("End:         " + e.target.elements.endDateTime.value);
 
 
     // switch(this.props.requestType){
@@ -107,7 +108,7 @@ class BookingCreateUpdateForm extends React.Component {
   }
 
   render(){
-    console.log(this);
+    // console.log(this);
     const titleDefaultValue=this.props.titleDefaultValue;
 
     return(

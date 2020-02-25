@@ -10,12 +10,12 @@ import UserUpdateForm from "../../components/users/UserCreateUpdateForm";
 class UserDetail extends React.Component {
   componentDidMount(){
     const userID = this.props.match.params.userID
-    console.log(userID);
+    // console.log(userID);
     this.props.getUserDetails(userID);
   }
 
   render(){
-    console.log(this)
+    // console.log(this)
     if(this.props.userDetails === null){
       return(
         <Skeleton />

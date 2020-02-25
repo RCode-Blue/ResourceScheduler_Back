@@ -42,16 +42,18 @@ class ResourceCreateUpdateForm extends React.Component {
       "organisation":this.state.dropdownChoice
     }
 
-    console.log(requestData);
+    // console.log(requestData);
 
     switch(type){
       case 'post':
-        return axios.post("http://127.0.0.1:8000/api/resources/", requestData)
+        // return axios.post("http://127.0.0.1:8000/api/resources/", requestData)
+        return axios.post("/api/resources/", requestData)
         .then(res => console.log(res))
         .catch(error => console.error(error));
       
       case 'put':
-        return axios.put(`http://127.0.0.1:8000/api/resources/${resourceID}/`, requestData)
+        // return axios.put(`http://127.0.0.1:8000/api/resources/${resourceID}/`, requestData)
+        return axios.put(`/api/resources/${resourceID}/`, requestData)
         .then(res => console.log(res))
         .catch(error => console.error(error));
       
@@ -217,7 +219,7 @@ class ResourceCreateUpdateForm extends React.Component {
 
   
   render() {
-    console.log(this);
+    // console.log(this);
     if(this.props.requestType === "put"){
       return(
         <this.renderPut/>

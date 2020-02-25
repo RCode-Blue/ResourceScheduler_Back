@@ -36,32 +36,32 @@ class MakeBookingForm extends React.Component {
     let t2m = moment(t2);
     
     let daysdiff=t2m.diff(t1m, 'days');
-    console.log(`Days difference: ${daysdiff}`)
+    // console.log(`Days difference: ${daysdiff}`)
 
     // console.log("start: " + moment(t1m).format("MM, D"));
-    console.log("start: " + moment(t1m).format("DD-MM-YYYY HH:mm"));
-    console.log("end:   " + moment(t2m).format("DD-MM-YYYY HH:mm"));
+    // console.log("start: " + moment(t1m).format("DD-MM-YYYY HH:mm"));
+    // console.log("end:   " + moment(t2m).format("DD-MM-YYYY HH:mm"));
 
 
-    console.log("START & END DAYS:");
+    // console.log("START & END DAYS:");
     let startDay = t1m.format("DD-MM-YY");
     let startHour = t1m.format("HH");
     let startMin = t1m.format("mm");
 
-    console.log("First Day");
-    console.log(`Start: ${startDay} ${startHour} ${startMin}`)
+    // console.log("First Day");
+    // console.log(`Start: ${startDay} ${startHour} ${startMin}`)
 
 
-    console.log("FULL DAYS:");
+    // console.log("FULL DAYS:");
     // let enumDays = [];
     for(let n=0; n<daysdiff; n++){
       let newDate = moment(t1m).add(n, 'days');
-      console.log(moment(newDate).format("DD-MM-YYYY"));
+      // console.log(moment(newDate).format("DD-MM-YYYY"));
 
     }
 
-    console.log("");
-    console.log("");
+    // console.log("");
+    // console.log("");
   }
 
 

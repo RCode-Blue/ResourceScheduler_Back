@@ -15,7 +15,8 @@ class BookingDetailView extends React.Component {
 
   componentDidMount(){
     const bookingID = this.props.match.params.bookingID
-    axios.get(`http://127.0.0.1:8000/api/bookings/${bookingID}/`)
+    // axios.get(`http://127.0.0.1:8000/api/bookings/${bookingID}/`)
+    axios.get(`/api/bookings/${bookingID}/`)
       .then(res => {
         // console.log(res);
         this.setState({
@@ -40,7 +41,7 @@ class BookingDetailView extends React.Component {
 
 
   render() {
-    console.log(this);
+    // console.log(this);
     return(
       <div>
         <BookingDetails data={this.state.booking}/>

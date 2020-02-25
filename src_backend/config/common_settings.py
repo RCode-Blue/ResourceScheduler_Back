@@ -1,8 +1,13 @@
 import os
 
 if(os.environ["DJANGO_ENV"]=="dev"):
+  print ("dev_settings")
   from .dev_settings import *
+elif(os.environ["DJANGO_ENV"]=="test"):
+  print ("test_settings")
+  from .test_settings import *
 elif(os.environ["DJANGO_ENV"]=="prod"):
+  print ("prod_settings")
   from .prod_settings import *
 
 # try:
@@ -15,12 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '5j_!%*1@aqyhn%%zff#l6n%4lecm_5*)jrsfd4$fmvzf=-)25u'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-
-# ALLOWED_HOSTS = ["127.0.0.1", "basic-django-react.herokuapp.com"]
 
 
 # Application definition
@@ -54,16 +54,17 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 MIDDLEWARE = [
-    'django.middleware.csrf.CsrfViewMiddleware',
-    
-    'corsheaders.middleware.CorsMiddleware',
-
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',    
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware', 
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 # ROOT_URLCONF = 'resourcescheduler.urls'
@@ -93,12 +94,12 @@ WSGI_APPLICATION = 'src_backend.wsgi.application'
 
 
 # Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -112,26 +113,22 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static"),]
+# STATIC_URL = '/static/'
+STATIC_URL = os.path.join(BASE_DIR, 'static/')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static"),]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATIC_FILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
+# STATIC_FILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
 
 
 # REST Framework configuration

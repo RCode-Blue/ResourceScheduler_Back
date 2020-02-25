@@ -10,7 +10,7 @@ class UserList extends React.Component{
   }
 
   render(){
-    console.log(this);
+    // console.log(this);
 
     if(this.props.userList === null){
       return(

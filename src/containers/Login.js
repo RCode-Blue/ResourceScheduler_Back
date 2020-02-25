@@ -23,11 +23,11 @@ class NormalLoginForm extends React.Component {
           // this.props.history.push("/");
         }
         catch (error){
-          console.log(error);
+          // console.log(error);
         }
       }
       else{
-        console.log("Error");
+        // console.log("Error");
       }
     });
     this.props.history.push("/bookings/");

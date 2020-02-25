@@ -9,7 +9,7 @@ import { List, Avatar } from 'antd';
 // );
 
 const OrgUsers = (props) => {
-  console.log(props);
+  // console.log(props);
   return(
   <List
     itemLayout="vertical"

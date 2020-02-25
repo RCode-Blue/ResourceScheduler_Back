@@ -9,9 +9,10 @@ class OrgDropdown extends Component {
   }
 
   componentDidMount(){
-    axios.get("http://127.0.0.1:8000/api/org/")
+    // axios.get("http://127.0.0.1:8000/api/org/")
+    axios.get("/api/org/")
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           orgList: res.data
         });
@@ -22,7 +23,7 @@ class OrgDropdown extends Component {
   render(){
     // console.log(this)
     if(this.state.orgList === null){
-      console.log("null");
+      // console.log("null");
       return(
         <div>Loading...</div>
       )

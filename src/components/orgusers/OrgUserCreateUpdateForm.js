@@ -48,8 +48,9 @@ class OrgUserCreateUpdateForm extends React.Component {
       "job_title":e.target.elements.job_title.value,
       "department":e.target.elements.department.value
     }
-    console.log(request);
-    return axios.post("http://127.0.0.1:8000/api/orgusers/", request)
+    // console.log(request);
+    // return axios.post("http://127.0.0.1:8000/api/orgusers/", request)
+    return axios.post("/api/orgusers/", request)
     .then(res => console.log(res))
     .catch(err => console.error(err));
   }
@@ -164,7 +165,7 @@ class OrgUserCreateUpdateForm extends React.Component {
   }
 
   handleOrgChange = (val) => {
-    console.log(`organisation: ${val}`)
+    // console.log(`organisation: ${val}`)
 
     // Make temp copy of local_UserList
     let temp_UserList = [...this.state.local_UserList];
@@ -254,7 +255,7 @@ class OrgUserCreateUpdateForm extends React.Component {
   }
 
   render= () => {
-    console.log(this);
+    // console.log(this);
     return(
       <div>
         <Form

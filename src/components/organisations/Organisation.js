@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Avatar, Icon } from 'antd';
+import { List, Icon } from 'antd';
 
 const IconText = ({ type, text }) => (
   <span>
@@ -34,12 +34,13 @@ const Organisations = (props) => {
           <img
             width={272}
             alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+            src={process.env.PUBLIC_URL + '/generic-company-logo.png'}
+            // src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
           />
         }
       >
         <List.Item.Meta
-          avatar={<Avatar src={item.avatar} />}
+          // avatar={<Avatar src={item.avatar} />}
           title={<a href={`/org/${item.id}/`}>{item.name}</a>}
           description={item.description}
         />

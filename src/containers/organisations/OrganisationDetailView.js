@@ -22,7 +22,7 @@ class OrganisationDetail extends React.Component {
   }
 
   render() {
-    console.log(this);
+    // console.log(this);
     const { Panel } = Collapse;
     if(this.props.orgDetails === null){
       return(

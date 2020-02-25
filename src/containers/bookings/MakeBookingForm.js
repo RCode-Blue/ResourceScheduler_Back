@@ -55,8 +55,10 @@ class MakeBookingForm extends React.Component {
       "resource":this.props.resource.id,
       "booking_start":e.target.elements[2].value,
       "booking_end":e.target.elements[3].value,
+      "organizer":this.props.userId
     }
-    axios.post('http://127.0.0.1:8000/api/bookings/', data)
+    // axios.post('http://127.0.0.1:8000/api/bookings/', data)
+    axios.post('/api/bookings/', data)
     .then(res => console.log(res))
     .catch(error => console.error(error));
   }
@@ -82,7 +84,7 @@ class MakeBookingForm extends React.Component {
       if(foundDate_start){
         // console.log(foundDate_start);
         this.dayDataStart = JSON.parse(JSON.stringify(foundDate_start));
-        console.log(this.dayDataStart)
+        // console.log(this.dayDataStart)
       }
 
 
@@ -94,7 +96,7 @@ class MakeBookingForm extends React.Component {
       if(foundDate_end){
         // console.log(foundDate_end);
         this.dayDataEnd = JSON.parse(JSON.stringify(foundDate_end));
-        console.log(this.dayDataEnd)
+        // console.log(this.dayDataEnd)
       }
     // }
   }
