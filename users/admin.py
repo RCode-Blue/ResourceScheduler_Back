@@ -40,6 +40,7 @@ class UserAdmin(BaseUserAdmin):
   )
 
   list_display = ["email", "username", "middle_name", "preferred_name", "dob", "photo"]
+  # list_display = ["email", "username"]
   search_fields = ("email", "username")
   ordering = ("email",)
 

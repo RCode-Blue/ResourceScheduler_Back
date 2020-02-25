@@ -27,4 +27,5 @@ class Organisation(models.Model):
   logo = models.URLField(blank=True)
 
   def __str__(self):
-    return self.name(max_length=120)
+    return self.name
+    # return self.name(max_length=120)

@@ -118,8 +118,8 @@ export const getOrgUserDetails = (id) => {
  
   return dispatch => {
     // axios.get(`http://127.0.0.1:8000/api/orgusers/user/${id}/`)
-    // axios.get(`/api/orgusers/user/${id}/`)
     axios.get(`/api/orgusers/user/${id}/`)
+    // axios.get(`/api/orgusers/user/${id}/`)
     .then(res => {
       // console.log(res.data);
       dispatch({

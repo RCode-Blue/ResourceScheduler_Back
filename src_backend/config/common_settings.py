@@ -1,5 +1,13 @@
 import os
 
+# print(os.environ["DJANGO_ENV"])
+# print(os.environ["DB_URL"])
+# print(os.environ["DB_PASSWORD"])
+# print(os.environ["DB_USERNAME"])
+# print(os.environ["DB_NAME"])
+# print(os.environ["DB_HOST"])
+
+
 if(os.environ["DJANGO_ENV"]=="dev"):
   print ("dev_settings")
   from .dev_settings import *
