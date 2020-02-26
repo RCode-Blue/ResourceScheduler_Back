@@ -14,7 +14,7 @@ from django.core.wsgi import get_wsgi_application
 from whitenoise import WhiteNoise
 
 # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'resourcescheduler.settings')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src_backend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src_backend.config.common_settings')
 
 application = get_wsgi_application()
 # application = DjangoWhiteNoise(application)
