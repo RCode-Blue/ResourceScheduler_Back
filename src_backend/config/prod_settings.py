@@ -2,7 +2,7 @@ import os
 import psycopg2
 
 SECRET_KEY = os.urandom(24)
-ALLOWED_HOSTS = ["https://serene-dusk-06086.herokuapp.com", "0.0.0.0", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["serene-dusk-06086.herokuapp.com", "0.0.0.0", "localhost", "127.0.0.1"]
 DEBUG = False
 # CSRF_COOKIE_SECURE = True
 
