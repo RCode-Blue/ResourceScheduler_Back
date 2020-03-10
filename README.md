@@ -1,68 +1,117 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>Resource Scheduler</h1>
+Resource Scheduler is a utility for resource booking. Users can book resources depending on their afilliated organisations. 
 
-## Available Scripts
+The application is able to manage resources for multiple organisations. 
 
-In the project directory, you can run:
+Administrators are able to:
 
-### `npm start`
+<ul>
+<li>Create organisations</li>
+<li>Create resources and assign them to organisations</li>
+<li>Create users and assign them to one or more organisations</li>
+</ul>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Users are able to:
+<ul>
+<li>View their bookings</li>
+<li>Create / Edit / Delete bookings for resources available to them</li>
+<li>Edit / Delete bookings</li>
+</ul>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3>Notes on the demo version</h3>
+<h4>No permission filtering</h4>
+There is no administration filtering in this demo version. All users are able to view unfiltered versions of the Bookings, Resources, Organisations and Users list. All users are also able to create new organisations and resources.
 
-### `npm run build`
+<h4>Cannot create users</h4>
+You will not be able to create new users in this app. You can assign existing ones to organisations
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<h2>Built Using</h2>
+<ul>
+  <li>React</li>
+  <li>Django</li>
+  <li>AntD</li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2>Application Features</h2>
+<ul>
+  <li>User views are filtered according to their profile</li>
+  <li>Schedule view displays bookings organised by the user</li>
+  <li>When making a booking, reserved dates and times are filtered out</li>
+  <li>Users can be assigned to multiple organisations</li>
+</ul>
 
-### `npm run eject`
+<h2>Installation</h2>
+<h3>Prerequisites</h3>
+If you wish to download and run a local copy of the software, please ensure you have the following prerequisites:
+<ul>
+  <li>Google Cloud Services Client ID for Web Application</li>
+  Note the following information:
+  <ul>
+    <li>Client ID</li>
+    <li>Client Secret</li>
+    <li>The urls of your own web applications</li>
+  </ul>
+</ul>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<h3>Steps for back-end installation</h3>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone backend from Github:<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<code>git clone https://github.com/RCode-Blue/ResourceScheduler_Back.git</code></br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Create and start virtual environment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<code>
+virtualenv venv --python=python3.7
+source venv/bin/activate
+</code>
 
-### Code Splitting
+3. Install libraries
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<code>pip install -t requirements.txt</code>
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+4. Set environment variables
 
-### Making a Progressive Web App
+<code>export DJANGO_ENV=dev</code>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+5. Start server
 
-### Advanced Configuration
+<code>python manage.py runserver</code>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+<h3>Steps for front-end installation</h3>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+1. Clone front-end from Github:
 
-### `npm run build` fails to minify
+<code>git clone https://github.com/RCode-Blue/ResourceScheduler_Front</code>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+2. Install libraries
+
+<code>npm install</code>
+
+3. Start server
+
+<code>npm start</code>
+
+
+
+<h2>Usage Demo</h2>
+
+<li>Login</li>
+
+<img src="assets/img/01login.png"></img>
+
+<li>Check user profile</li>
+
+<img src="assets/img/02profile.png"></img>
+
+<li>Create a booking</li>
+
+<img src="assets/img/03createbooking.png"></img>
+
