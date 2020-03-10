@@ -1,4 +1,3 @@
-
 from rest_framework import (
   viewsets, status
 )
@@ -54,20 +53,3 @@ def resource_detail(request, pk):
     resource.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
 
-
-
-
-
-
-
-
-# from rest_framework import viewsets
-
-# from resources.models import Resource
-# from .serializers import ResourceSerializer
-
-# class ResourceViewSet(viewsets.ModelViewSet):
-#   serializer_class = ResourceSerializer
-#   queryset = Resource.objects.all()
-
-  

@@ -26,13 +26,3 @@ class OrgUser(models.Model):
   is_admin = models.BooleanField()
   is_employee = models.BooleanField()
 
-# region (from tutorial)
-  # _user = models.OneToOneField(
-  #   User, 
-  #   on_delete = models.CASCADE)
-# endregion
-
-  # region (from tutorial)
-  # def __str__(self):
-  #   return self._user.username
-  # endregion

@@ -13,18 +13,3 @@ urlpatterns = [
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
-
-
-# region (original)
-# from rest_framework.routers import DefaultRouter
-
-# from bookings.api.views import BookingViewSet
-
-# router = DefaultRouter()
-# router.register(
-#   r"bookings",
-#   BookingViewSet,
-#   basename="bookings")
-
-# urlpatterns = router.urls
-# endregion

@@ -14,9 +14,3 @@ class Resource(models.Model):
     # return self.name
     return (self.name + "-" + self.description)
 
-# region
-  # def __str__(self):
-    # return '{ "name" : %s, "description": %s }' % (self.name, self.description)
-    # response = "{" + '"name"' + ":" + '"' + self.name + '"' + "," + '"description"' + ":" + '"' + self.description + '"' + "}"
-    # return response
-#endregion

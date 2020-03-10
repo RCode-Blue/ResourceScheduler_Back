@@ -1,8 +1,6 @@
 from rest_framework import serializers
 
 from resources.models import Resource
-# from organisations.models import Organisation
-# from organisations.api.serializers import OrganisationSerializer
 
 class ResourceSerializer(serializers.ModelSerializer):
   org_name = serializers.CharField(
@@ -27,15 +25,3 @@ class ResourceSerializerPost(serializers.ModelSerializer):
     fields = (
       'name', 'description', 'organisation'
     )
-
-
-
-# class ResourceSerializerOrgName(serializers.ModelSerializer):
-#   organisation = OrgNameSerializer()
-#   class Meta:
-#     model = Resource
-#     fields = (
-#       "name",
-#       "description",
-#       "organisation"
-#     )

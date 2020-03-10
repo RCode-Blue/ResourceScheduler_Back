@@ -25,7 +25,6 @@ class OrganisationSerializer(serializers.ModelSerializer):
       'logo'
       )
 
-# class OrganisationSerializerPost(serializers.ModelSerializer):
 
 
 

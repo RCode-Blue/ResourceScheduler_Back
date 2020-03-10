@@ -56,70 +56,7 @@ def organisation_detail(request, pk):
 # Given an array of organisation ids, get the orgs that do not match
 def organisations_list_filtered_out(request):
   if request.method == "GET":
-    print("---------")
-    print(request.data)
-    # print(org_ids)
-    # orgs = Organisation.objects.exclude(id__in=request.data(org_ids))
     orgs = Organisation.objects.exclude(id__in=request.data["org_ids"])
     serializer = OrganisationSerializer(orgs, many=True)
     return Response(serializer.data)
 
-
-    # organisations = []
-    # if(request.data and request.data["org_ids"]):
-    #   for org_id in request.data["org_ids"]:
-    #     org = Organisation.objects.get(id=org_id)
-    #     serializer = OrganisationSerializer(org)
-    #     organisations.append(serializer.data)
-    #   return Response(organisations)
-
-
-  
-
-
-
-
-
-
-
-
-#region
-# from rest_framework import viewsets
-
-# from organisations.models import Organisation
-# from .serializers import OrganisationSerializer
-
-# class OrganisationViewSet(viewsets.ModelViewSet):
-#   serializer_class = OrganisationSerializer
-#   queryset = Organisation.objects.all()
-#endregion
-
-#region
-# from rest_framework.generics import (
-#   ListAPIView, 
-#   RetrieveAPIView,
-#   CreateAPIView,
-#   UpdateAPIView,
-#   DestroyAPIView
-#   )
-
-# class OrganisationListView(ListAPIView):
-#   queryset = Organisation.objects.all()
-#   serializer_class = OrganisationSerializer
-
-# class OrganisationDetailView(RetrieveAPIView):
-#   queryset = Organisation.objects.all()
-#   serializer_class = OrganisationSerializer
-
-# class OrganisationCreateView(CreateAPIView):
-#   queryset = Organisation.objects.all()
-#   serializer_class = OrganisationSerializer
-
-# class OrganisationUpdateView(UpdateAPIView):
-#   queryset = Organisation.objects.all()
-#   serializer_class = OrganisationSerializer
-
-# class OrganisationDeleteView(DestroyAPIView):
-#   queryset = Organisation.objects.all()
-#   serializer_class = OrganisationSerializer
-#endregion

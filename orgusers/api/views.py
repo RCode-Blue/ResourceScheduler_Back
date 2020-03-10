@@ -1,14 +1,3 @@
-#region (original)
-# from rest_framework import viewsets
-
-# from orgusers.models import OrgUser
-# from .serializers import OrgUserSerializer
-
-# class OrgUserViewSet(viewsets.ModelViewSet):
-#   serializer_class = OrgUserSerializer
-#   queryset = OrgUser.objects.all()
-#endregion
-
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -22,9 +11,6 @@ from .serializers import OrgUserSerializer, OrgUserSerializerDetails
 
 @api_view(['GET', 'POST'])
 def orgusers_list(request):
-  # print("<<<>>>")
-  # print(request.data)
-
   if request.method == "GET":
     if(request.data and request.data['userid']):
       user_id = request.data['userid']
@@ -32,11 +18,7 @@ def orgusers_list(request):
       print(orgusers)
       serializer = OrgUserSerializerDetails(orgusers, many=True)
       return Response(serializer.data)
-      # serializer = OrgUserSerializerDetails(orgusers, many=True)
-    # print("xxxxxxxxxxxxx")
-    # print(request.data)
     orgusers = OrgUser.objects.all()
-    # serializer = OrgUserSerializer(orgusers, many=True)
     serializer = OrgUserSerializerDetails(orgusers, many=True)
     return Response(serializer.data)
 
@@ -74,7 +56,6 @@ def orguser_detail(request, pk):
 @api_view(["GET"])
 def orguser_by_userId(request, userid):
   if request.method == "GET":
-    # userid=request.data["userid"]
     orgusers = OrgUser.objects.filter(_user__id = userid)
     serializer = OrgUserSerializerDetails(orgusers, many=True)
     return Response(serializer.data)
@@ -85,9 +66,6 @@ def orguser_by_userId(request, userid):
 @parser_classes([JSONParser])
 def orguser_by_userId_test(request):
   if request.method == "GET":
-    print("-----")
-    print(request.data)
-    # print(userid)
     userid=request.data["userid"]
     orgusers = OrgUser.objects.filter(_user__id = userid)
     serializer = OrgUserSerializerDetails(orgusers, many=True)
